@@ -121,9 +121,15 @@
         function displayTemperature(response) {
                 console.log(response.data);
             let temperatureElement= document.querySelector("#temperature");
-            temperatureElement.innerHTML=Math.round(response.data.main.temp);
+            let cityElement=document.querySelector("#city");
+            let descriptionElement=document.querySelector("#description");
+            temperatureElement.innerHTML=Math.round
+            (response.data.main.temp);
+            cityElement.innerHTML= response.data.name;
+            descriptionElement.innerHTML = response.data.weather[0].description;
 
         }
+        
 
         let apiKey="453088d85d09cc5023dbd02542295ede"; 
         let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=Santa Fe&appid=${apiKey}&units=metric`;
