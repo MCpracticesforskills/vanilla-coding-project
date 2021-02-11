@@ -35,7 +35,10 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            text-transform: capitalize;
+            
+            }
+            li: first-letter{
+                text-transform: capitalize;
             }
             ul {
                 margin: 0;
@@ -77,7 +80,7 @@
     </h1>
 
     <ul>
-        <li>Friday 05:00PM</li>
+        <li> <span id="date"></span></li>
         <li id="description"></li>
         
     </ul>
@@ -122,15 +125,43 @@
     </div>
     <script>
 
+        function formatDate(timestamp) {
+            let date=new Date(timestamp);
+            let hours= date.getHours();
+            if (hours<10) {
+                hours=`0${hours}`;
+            }
+            let minutes= date.getMinutes();
+            if (minutes<10) {
+                minutes=`0${minutes}`;
+            }
+            
+            let days=[
+                "Sunday", 
+            "Monday", 
+            "Tuesday", 
+            "Wednesday",
+             "Thursday", 
+             "Friday", 
+             "Saturday", 
+             "Sunday"
+            ];
+            let day= days[date.getDay()];
+            return `${day} ${hours} : ${minutes}`;
+
+        }
+
         function displayTemperature(response) {
                 console.log(response.data);
             let temperatureElement= document.querySelector("#temperature");
+            let dateElement=document.querySelector("#date");
             let cityElement=document.querySelector("#city");
             let descriptionElement=document.querySelector("#description");
             let windElement=document.querySelector("#wind");
             let humididtyElement=document.querySelector("#humidity");
             temperatureElement.innerHTML=Math.round
             (response.data.main.temp);
+            dateElement.innerHTML= formatDate(response.data.dt * 1000); 
             cityElement.innerHTML= response.data.name;
             descriptionElement.innerHTML = response.data.weather[0].description;
             windElement.innerHTML= Math.round
