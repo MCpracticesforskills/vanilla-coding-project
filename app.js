@@ -32,6 +32,7 @@
             let descriptionElement=document.querySelector("#description");
             let windElement=document.querySelector("#wind");
             let humididtyElement=document.querySelector("#humidity");
+            let iconElement=document.querySelector("#icon");
             temperatureElement.innerHTML=Math.round
             (response.data.main.temp);
             dateElement.innerHTML= formatDate(response.data.dt * 1000); 
@@ -40,13 +41,20 @@
             windElement.innerHTML= Math.round
             (response.data.wind.speed);
             humididtyElement.innerHTML= response.data.main.humidity;
+            iconElement.setAttribute(
+                "src",
+                `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+            ); 
+
+            iconElement.setAttribute(
+                "alt", response.data.weather[0].description);
 
 
         }
         
 
         let apiKey="453088d85d09cc5023dbd02542295ede"; 
-        let city="Santa Fe";
+        let city="Golega";
         let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 
