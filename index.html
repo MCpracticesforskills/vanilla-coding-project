@@ -20,9 +20,11 @@
     color: #BE3C62;
     padding: 10px 10px 10px 10px;
     }
-    .weather-app {
+    .weather-app-wrapper{
         max-width: 600px;
         margin: 30px auto; 
+    }
+    .weather-app {
         padding: 25px;
         border: 1px solid #BE3C62; 
         border-radius: 10px;
@@ -36,11 +38,33 @@
                 margin: 0;
                 padding: 0; 
             }
+            .overview{
+                margin-bottom: 20px;
+            }
+           .weather-temperature img {
+               margin-right: 10px;
+               height: 64px;
+               width: 64px;
+           }
+           .weather-temperature strong {
+               color: rgb(33,33,33);
+               font-size: 64px;
+               line-height: 1;
+               font-weight: 400;
+           }
+           .units { 
+               position: relative;
+               font-size: 16px; 
+               top: -34px;
+           }
+
             
 </style>
 <body>
     <div class="container">
+        <div class="weather-app-wrapper">
         <div class="weather-app">
+            <div class="overview">
 
        
     <h1>
@@ -52,14 +76,24 @@
         <li>Sunny</li>
         
     </ul>
+    </div>
     <div class="row">
        
      <div class="col-6">
+         <div class="clearfix weather-temperature"> 
         
     <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-         alt="clear"/> 
+         alt="clear"
+          class="float-left"
+         /> 
+        <div class="float-left">
          
-         22°C | 88°F 
+        <strong> 22 </strong>
+        <span class="units">
+        °C | °F
+        </span>
+        </div>
+        </div>
          </div>
          <div class="col-6">
              <ul>
@@ -68,13 +102,15 @@
                  <li>Wind: 6km/h</li>
              </ul>
          </div>
-<small>
-    <a href="https://github.com/MCpracticesforskills/vanilla-coding-project" target="_blank">open-source coded by Morgan
-        Coyle
-</small>
-     </div>
+
      </div>
     
+     </div>
+    <small>
+        <a href="https://github.com/MCpracticesforskills/vanilla-coding-project" target="_blank">open-source coded by Morgan
+            Coyle
+    </small>
+    </div>
     </div>
     
     </div>
