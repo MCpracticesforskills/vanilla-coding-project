@@ -83,7 +83,9 @@
                 </div>
                
 <div class="col-3">
-                <input type="submit" value="search" class="btn btn-primary w-100">
+                <input type="submit" 
+                value="search" 
+                class="btn btn-primary w-100">
                 </div>
                 </div>
             </form>
@@ -206,6 +208,7 @@
      event.preventDefault();
      let cityInoutElement= document.querySelector("#city-input");
      search(cityInputElement.value); 
+     console.log(cityInputElement.value);
      }
 
  search("Santa Fe");
