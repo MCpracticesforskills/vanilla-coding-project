@@ -1,4 +1,5 @@
- function formatDate(timestamp) {
+
+        function formatDate(timestamp) {
             let date=new Date(timestamp);
             let hours= date.getHours();
             if (hours<10) {
@@ -49,14 +50,23 @@
             iconElement.setAttribute(
                 "alt", response.data.weather[0].description);
 
+ }
 
-        }
+ function search(city) {
+     let apiKey = "453088d85d09cc5023dbd02542295ede";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayTemperature);
+    }
+ 
+ function handleSubmit(event) {
+     event.preventDefault();
+     let cityInoutElement= document.querySelector("#city-input");
+     search(cityInputElement.value); 
+     console.log(cityInputElement.value);
+     }
+
+ search("Santa Fe");
         
 
-        let apiKey="453088d85d09cc5023dbd02542295ede"; 
-        let city="Golega";
-        let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-
-        console.log(apiUrl);
-        axios.get(apiUrl).then(displayTemperature);
+        let form=document.querySelector("#search-form");
+        form.addEventListener("submit", handleSubmit);
