@@ -118,7 +118,7 @@
          
         <strong id="temperature"> </strong>
         <span class="units"
-        ></span><a href="#" id="celsius-link"></a>°C</a> | 
+        ><a href="#" id="celsius-link">°C</a> | 
         <a href="#" id="fahrenheit-link">°F</a> 
             </span>
         </div>
@@ -224,7 +224,7 @@ temperatureElement.innerHTML=Math.round(fahrenheitTemperature);
 function displayCelsiusTemperature(event){
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
-    temperatureElement=Math.round(celsiusTemperature);
+    temperatureElement.innerHTML=Math.round(celsiusTemperature);
 }
      
  
