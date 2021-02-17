@@ -63,10 +63,8 @@
                font-size: 16px; 
                top: -34px;
            }
+           </style>
            
-
-            
-</style>
 <script src="src/app.js"></script>
 <body>
     <div class="container">
@@ -135,7 +133,63 @@
          </div>
 
      </div>
-    
+    <div class="row weather-forecast">
+        <div class="col-2">
+            <h3>
+                Sun
+            </h3>
+            <img src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png" alt="" />
+            <div class="weather-forecast-temperature">
+                <strong>22°</strong> 17°
+            </div>
+        </div>
+        <div class="col-2">
+            <h3>
+                Mon
+            </h3>
+            <img src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png" alt="" />
+            <div class="weather-forecast-temperature">
+                <strong>22°</strong> 17°
+            </div>
+        </div>
+        <div class="col-2">
+            <h3>
+                Tue
+            </h3>
+            <img src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png" alt="" />
+            <div class="weather-forecast-temperature">
+                <strong>22°</strong> 17°
+            </div>
+        </div>
+        <div class="col-2">
+            <h3>
+                Wed
+            </h3>
+            <img src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png" alt="" />
+            <div class="weather-forecast-temperature">
+                <strong>22°</strong> 17°
+            </div>
+        </div>
+        <div class="col-2">
+            <h3>
+                Thu
+            </h3>
+            <img src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png" alt="" />
+            <div class="weather-forecast-temperature">
+                <strong>22°</strong> 17°
+            </div>
+        </div>
+        <div class="col-2">
+            <h3>
+                Fri
+            </h3>
+            <img src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png" alt="" />
+            <div class="weather-forecast-temperature">
+                <strong>22°</strong> 17°
+            </div>
+        </div>
+    </div>
+    <div class="row weather-forecast" id="forecast"></div>
      </div>
     <small>
         <a href="https://github.com/MCpracticesforskills/vanilla-coding-project" target="_blank">open-source coded by Morgan
@@ -201,10 +255,19 @@
 
  }
 
+ function displayForecast(response){
+     console.log(response.data);
+
+ }
+
  function search(city) {
      let apiKey = "453088d85d09cc5023dbd02542295ede";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayTemperature);
+
+    apiUrl=`api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}
+    &units=metric`; 
+    axios.get(apiUrl).then(displayForecast);
     }
  
  function handleSubmit(event) {
